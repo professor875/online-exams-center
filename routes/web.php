@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('register',[RegisterController::class,'show'])->name('register');
 Route::post('register',[RegisterController::class,'store'])->name('register');
 
 Route::get('login',[ProfileController::class,'show'])->name('login');
 Route::post('login',[ProfileController::class,'login'])->name('login');
+Route::post('login',[ProfileController::class,'logout'])->name('logout');

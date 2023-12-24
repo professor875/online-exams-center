@@ -20,6 +20,7 @@
             <x-form.form-input label="Name" name="name" />
             <x-form.form-input label="Email" name="email" type="email" />
             <x-form.form-input label="Password" name="password" type="password" />
+            <x-form.form-input label="Confirm Password" name="password_confirmation" type="password" />
 
             <div class="flex justify-between my-2">
                 <a href="{{ route('login') }}" class="text-gray-500 hover:underline cursor-pointer">

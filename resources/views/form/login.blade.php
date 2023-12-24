@@ -9,7 +9,7 @@
         <form class="max-w-96 w-full " action="{{ route('login')}}" method="POST">
             @csrf
 
-            <x-form.form-input label="Name" name="name" />
+            <x-form.form-input label="Email" type="email" name="email" />
             <x-form.form-input label="Password" name="password" type="password" />
 
             <div class="flex justify-between my-2">
