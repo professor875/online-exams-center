@@ -17,7 +17,7 @@ class ProfileController extends Controller
     public function login(Request $request)
     {
         $attributes = $request->validate([
-            'email' => ['required', 'email' , 'max:50', 'unique:'.User::class],
+            'email' => ['required', 'email' , 'max:50'],
             'password' => ['required', Password::default()],
         ]);
         if (! auth()->attempt($attributes)){
