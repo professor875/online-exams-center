@@ -43,7 +43,7 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        $subAdmins = User::where('roll','sub-admin')->get();
+        $subAdmins = User::where('id','<>',1)->get();
         return view('admin.dashboard', compact('subAdmins'));
     }
 
