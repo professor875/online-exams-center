@@ -36,6 +36,7 @@ Route::controller(AdminController::class)->group(function (){
     Route::get('admin-form','show')->name('admin-form');
     Route::post('admin-register','store')->name('admin-register');
     Route::get('admins','dashboard')->name('dashboard');
+    Route::get('candidates','candidate')->name('candidate');
     Route::DELETE('delete-user/{user}','destroy')->name('delete-user');
 });
 

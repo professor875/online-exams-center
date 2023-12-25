@@ -43,8 +43,16 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        $subAdmins = User::where('id','<>',1)->get();
+        $subAdmins = User::where('id','<>',1)->where('roll','<>','candidate')->get();
         return view('admin.dashboard', compact('subAdmins'));
+    }
+
+    public function candidate()
+    {
+        $candidates = User::where('roll','candidate')->get();
+        $array = ['candidates' => $candidates];
+
+        return view('admin.candidate', compact('candidates'));
     }
 
     public function destroy(User $user)

@@ -45,7 +45,7 @@
                 <x-templates.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-templates.nav-link>
-                <x-templates.nav-link :href="route('login')" :active="request()->routeIs('login')">
+                <x-templates.nav-link :href="route('candidate')" :active="request()->routeIs('candidate')">
                     {{ __('Candidates') }}
                 </x-templates.nav-link>
                 <x-templates.nav-link :href="route('login')" :active="request()->routeIs('login')">
