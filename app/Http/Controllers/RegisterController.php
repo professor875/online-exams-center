@@ -12,11 +12,17 @@ class RegisterController extends Controller
 {
     public function show()
     {
-        return view('form.register');
+        if(Auth::check()){
+            return redirect()->route('welcome');
+        }
+        else {
+            return view('form.register');
+        }
     }
 
     public function store(Request $request)
     {
+
         $request->validate([
             'roll' => ['required'],
             'name' => ['required', 'string', 'max:50'],

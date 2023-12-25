@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Models\User;
@@ -26,3 +27,6 @@ Route::post('register',[RegisterController::class,'store'])->name('register');
 Route::get('login',[ProfileController::class,'show'])->name('login');
 Route::post('login',[ProfileController::class,'login'])->name('login');
 Route::post('logout',[ProfileController::class,'logout'])->name('logout');
+
+Route::get('admin-form',[AdminController::class,'show'])->name('admin-form');
+Route::post('admin-form',[AdminController::class,'show'])->name('admin-form');

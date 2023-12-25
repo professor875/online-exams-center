@@ -62,7 +62,7 @@
                 <x-templates.dropedown-link name="Profile"/>
                 @if( auth()->user()->roll === 'admin')
                     <x-templates.dropedown-link name="Dashboard"/>
-                    <x-templates.dropedown-link name="Create Admin"/>
+                    <x-templates.dropedown-link name="Create Admin" route="admin-form"/>
                 @endif
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
