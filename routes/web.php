@@ -21,13 +21,21 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('register',[RegisterController::class,'show'])->name('register');
-Route::post('register',[RegisterController::class,'store'])->name('register');
+Route::controller(RegisterController::class)->name('register')->group(function (){
+    Route::get('register','show');
+    Route::post('register','store');
+});
 
-Route::get('login',[ProfileController::class,'show'])->name('login');
-Route::post('login',[ProfileController::class,'login'])->name('login');
-Route::post('logout',[ProfileController::class,'logout'])->name('logout');
+Route::controller(ProfileController::class)->group(function (){
+    Route::get('login','show')->name('login');
+    Route::post('login','login')->name('login');
+    Route::post('logout','logout')->name('logout');
+});
 
-Route::get('admin-form',[AdminController::class,'show'])->name('admin-form');
-Route::post('admin-register',[AdminController::class,'store'])->name('admin-register');
-Route::get('admins',[AdminController::class,'dashboard'])->name('dashboard');
+Route::controller(AdminController::class)->group(function (){
+    Route::get('admin-form','show')->name('admin-form');
+    Route::post('admin-register','store')->name('admin-register');
+    Route::get('admins','dashboard')->name('dashboard');
+    Route::DELETE('delete-user/{user}','destroy')->name('delete-user');
+});
+
