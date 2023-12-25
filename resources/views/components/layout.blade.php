@@ -19,6 +19,7 @@
     </style>
 </head>
 <body class="antialiased min-h-screen bg-dots-darker bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+    <x-navigation-bar/>
 
 {{ $slot }}
 
