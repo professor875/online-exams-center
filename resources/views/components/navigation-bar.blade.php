@@ -41,6 +41,11 @@
                     {{ __('Announcements') }}
                 </x-templates.nav-link>
             @endif
+            @if(auth()->user()->roll === 'sub-admin')
+                <x-templates.nav-link :href="route('create-exam')" :active="request()->routeIs('create-exam')">
+                    {{ __('Create-Exams') }}
+                </x-templates.nav-link>
+            @endif
             @if(auth()->user()->roll === 'admin')
                 <x-templates.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}

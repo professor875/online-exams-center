@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ExamsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Models\User;
@@ -40,3 +41,6 @@ Route::controller(AdminController::class)->group(function (){
     Route::DELETE('delete-user/{user}','destroy')->name('delete-user');
 });
 
+Route::controller(ExamsController::class)->group(function (){
+    Route::get('create-exam','show')->name('create-exam');
+});
