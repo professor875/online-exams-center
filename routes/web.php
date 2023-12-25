@@ -29,4 +29,4 @@ Route::post('login',[ProfileController::class,'login'])->name('login');
 Route::post('logout',[ProfileController::class,'logout'])->name('logout');
 
 Route::get('admin-form',[AdminController::class,'show'])->name('admin-form');
-Route::post('admin-form',[AdminController::class,'show'])->name('admin-form');
+Route::post('admin-register',[AdminController::class,'store'])->name('admin-register');
