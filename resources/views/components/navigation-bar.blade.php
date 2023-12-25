@@ -42,11 +42,8 @@
                 </x-templates.nav-link>
             @endif
             @if(auth()->user()->roll === 'admin')
-                <x-templates.nav-link :href="route('login')" :active="request()->routeIs('login')">
+                <x-templates.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
-                </x-templates.nav-link>
-                <x-templates.nav-link :href="route('login')" :active="request()->routeIs('login')">
-                    {{ __('Admins') }}
                 </x-templates.nav-link>
                 <x-templates.nav-link :href="route('login')" :active="request()->routeIs('login')">
                     {{ __('Candidates') }}
@@ -61,7 +58,7 @@
             <x-templates.dropedown-nav :name=" auth()->user()->name ">
                 <x-templates.dropedown-link name="Profile"/>
                 @if( auth()->user()->roll === 'admin')
-                    <x-templates.dropedown-link name="Dashboard"/>
+                    <x-templates.dropedown-link name="Dashboard" route="dashboard"/>
                     <x-templates.dropedown-link name="Create Admin" route="admin-form"/>
                 @endif
                 <form method="POST" action="{{ route('logout') }}">

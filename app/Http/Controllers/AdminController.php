@@ -41,4 +41,8 @@ class AdminController extends Controller
         return redirect()->route('welcome');
 
     }
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
 }
