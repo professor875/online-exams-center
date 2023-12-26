@@ -21,5 +21,17 @@ class DatabaseSeeder extends Seeder
              'email' => 'admin@admin.com',
              'password' => Hash::make('password')
          ]);
+         \App\Models\User::factory()->create([
+             'roll' => 'examiner',
+             'name' => 'Abdul-Haseeb-Khan',
+             'email' => 'abdulhaseeb407@gmail.com',
+             'password' => Hash::make('password')
+         ]);
+         \App\Models\User::factory()->create([
+             'roll' => 'sub-admin',
+             'name' => 'Mubashir-Khan',
+             'email' => 'mubshirk875@gmail.com',
+             'password' => Hash::make('password')
+         ]);
     }
 }
