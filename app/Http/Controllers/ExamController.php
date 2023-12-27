@@ -25,13 +25,20 @@ class ExamController extends Controller
         $exam = Exam::create($request->only(['title', 'duration']));
 
         foreach ($request->input('questions') as $questionData) {
-            $question = $exam->questions()->create(['question' => $questionData['text']]);
+            $question = $exam->questions()->create(['question' => $questionData['value']]);
 
-            foreach ($questionData['answers'] as $answerData) {
-                $isCorrect = isset($answerData['correct_answer']) && $answerData['correct_answer'] == $j;
+            foreach ($questionData['answer'] as $currentAnswer) {
+
+                $correct = $questionData['correct_answer'];
+                $correctAnswer = $questionData['answer'][$correct];
+
+                $isCorrect = isset($correct) && $correctAnswer == $currentAnswer;
+
+                // $correctAnswer = $questionData['correct_answer'];
+                // $isCorrect = isset($correctAnswer) && $correctAnswer == $currentAnswer;
 
                 $question->answers()->create([
-                    'answer' => $answerData['text'],
+                    'answer' => $currentAnswer,
                     'is_correct' => $isCorrect,
                 ]);
             }
