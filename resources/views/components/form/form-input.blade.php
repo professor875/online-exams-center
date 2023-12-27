@@ -12,7 +12,7 @@
            required
            value="{{ old($name) }}"
            placeholder="Write your {{ $label }}.."
-           class=" border text-sm text-gray-300 border-red-400 p-2 w-full rounded-lg bg-gray-800">
+           class=" border text-sm text-gray-300 min-w-44 border-red-400 p-2 w-full rounded-lg bg-gray-800">
 
     <x-form.form-error :name="$name"/>
 </div>

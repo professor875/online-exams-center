@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ExamsController extends Controller
+class ExamController extends Controller
 {
     public function show()
     {
@@ -16,5 +17,11 @@ class ExamsController extends Controller
         else{
             return back();
         }
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->cAnsq1);
+        return 5;
     }
 }
