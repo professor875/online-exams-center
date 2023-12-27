@@ -28,7 +28,7 @@ class ExamController extends Controller
             $question = $exam->questions()->create(['question' => $questionData['text']]);
 
             foreach ($questionData['answers'] as $answerData) {
-                $isCorrect = isset($answerData['correct_answer']) && $answerData['correct_answer'] == '1';
+                $isCorrect = isset($answerData['correct_answer']) && $answerData['correct_answer'] == $j;
 
                 $question->answers()->create([
                     'answer' => $answerData['text'],
@@ -37,6 +37,6 @@ class ExamController extends Controller
             }
         }
 
-        return redirect()->route('create-exam');
+        return redirect()->route('create-exam')->with('success', 'Exam created successfully!');
     }
 }

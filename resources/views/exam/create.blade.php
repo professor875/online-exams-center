@@ -30,7 +30,12 @@
                             <input type="text" name="questions[{{ $i }}][answers][{{ $j }}][text]" class="p-2 border rounded-md bg-gray-600 text-white" required>
 
                             <label class="ml-2">
-                                <input type="radio" name="questions[{{ $i }}][correct_answer]" value="{{ $j }}" required class="mr-1">
+{{--                                <input type="radio" name="questions[{{ $i }}][correct_answer]" value="1" required class="mr-1">--}}
+                                <!-- Inside the loop where you generate radio buttons -->
+                                <!-- Inside the loop where you generate radio buttons -->
+                                <input type="radio" name="questions[{{ $i }}][correct_answer]" value="{{ $j }}" class="mr-1">
+
+
                                 Correct Answer
                             </label>
                         </div>
