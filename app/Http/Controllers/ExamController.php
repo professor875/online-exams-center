@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,14 +15,28 @@ class ExamController extends Controller
                 return view('exam.create');
             }
         }
-        else{
+
             return back();
-        }
+
     }
 
     public function store(Request $request)
     {
-        dd($request->cAnsq1);
-        return 5;
+        $exam = Exam::create($request->only(['title', 'duration']));
+
+        foreach ($request->input('questions') as $questionData) {
+            $question = $exam->questions()->create(['question' => $questionData['text']]);
+
+            foreach ($questionData['answers'] as $answerData) {
+                $isCorrect = isset($answerData['correct_answer']) && $answerData['correct_answer'] == '1';
+
+                $question->answers()->create([
+                    'answer' => $answerData['text'],
+                    'is_correct' => $isCorrect,
+                ]);
+            }
+        }
+
+        return redirect()->route('create-exam');
     }
 }
