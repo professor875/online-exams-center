@@ -22,7 +22,7 @@ class ExamController extends Controller
 
     public function store(Request $request)
     {
-        $exam = Exam::create($request->only(['title', 'duration']));
+        $exam = Exam::create($request->only(['title', 'duration', 'examiner']));
 
         foreach ($request->input('questions') as $questionData) {
             $question = $exam->questions()->create(['question' => $questionData['value']]);

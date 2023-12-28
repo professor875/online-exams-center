@@ -10,7 +10,7 @@ class Exam extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'duration'];
+    protected $fillable = ['examiner', 'title', 'duration'];
 
     public function questions(): HasMany
     {

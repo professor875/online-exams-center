@@ -1,44 +1,44 @@
 <x-layout>
 
-    <div class="max-w-lg mx-auto bg-gray-700 p-6 rounded shadow-md">
+    <div class=" p-6 text-red-500 rounded shadow-md">
 
         <form method="post" action="{{ route('create-exam') }}">
             @csrf
 
-            <div class="mb-4">
-                <label for="title" class="block text-sm font-medium mb-1">Exam Title:</label>
-                <input type="text" name="title" id="title" class="mt-1 p-2 w-full border rounded-md bg-gray-600 text-white" required>
-            </div>
+            <select id="roll" name="examiner"
+                    class=" border my-5 text-sm text-gray-300 border-red-400 p-2 w-full rounded-lg bg-gray-800 ">
+                <option value="{{ auth()->user()->name }}" selected>{{ auth()->user()->name }}</option>
+            </select>
 
             <div class="mb-4">
-                <label for="duration" class="block text-sm font-medium mb-1">Exam Duration (minutes):</label>
-                <input type="number" name="duration" id="duration" class="mt-1 p-2 w-full border rounded-md bg-gray-600 text-white" required>
+                <x-form.form-input name="title" label="Exam Title" />
+            </div>
+
+            <div class="mb-4 max-w-[250px]">
+                <x-form.form-input name="duration" type="number" label="Duration in minutes" />
             </div>
 
             <h2 class="text-lg font-semibold mb-2">Questions</h2>
 
             @foreach(range(0 , 4) as $i)
                 <div class="mb-4">
-                    <label class="block text-sm font-medium mb-1">Question {{ $i + 1 }}:</label>
-                    <input type="text" name="questions[{{ $i }}][value]" class="mt-1 p-2 w-full border rounded-md bg-gray-600 text-white" required>
+                    <x-form.form-input name="questions[{{ $i }}][value]" label="Question {{ $i + 1 }}" />
 
-                    <h3 class="text-md font-semibold mt-2 mb-1">Answers</h3>
-
+                <div class=" xl:flex xl:space-x-14">
                     @foreach(range(0 , 3) as $j)
-                        <div class="flex items-center mb-2">
-                            <label class="mr-2 block text-sm font-medium mb-1">Answer {{ $j + 1 }}:</label>
-                            <input type="text" name="questions[{{ $i }}][answer][{{ $j }}]" class="p-2 border rounded-md bg-gray-600 text-white" required>
-
+                        <div class=" flex items-center mb-2">
+                            <x-form.form-input name="questions[{{ $i }}][answer][{{ $j }}]" label="Answer {{ $j + 1 }}" />
                             <label class="ml-2">
-                               <input type="radio" name="questions[{{ $i }}][correct_answer]" value="{{ $j }}" required class="mr-1">
-                                Correct Answer
+                                <input type="radio" name="questions[{{ $i }}][correct_answer]" value="{{ $j }}" required class="mr-1">
+                                Correct
                             </label>
                         </div>
                     @endforeach
                 </div>
+                </div>
             @endforeach
 
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Create Exam</button>
+            <x-form.primary-btn name="Create"/>
         </form>
     </div>
 </x-layout>

@@ -23,14 +23,14 @@ class DatabaseSeeder extends Seeder
          ]);
          \App\Models\User::factory()->create([
              'roll' => 'examiner',
-             'name' => 'Abdul-Haseeb-Khan',
-             'email' => 'abdulhaseeb407@gmail.com',
+             'name' => 'Examiner',
+             'email' => 'examiner@test.com',
              'password' => Hash::make('password')
          ]);
          \App\Models\User::factory()->create([
              'roll' => 'sub-admin',
-             'name' => 'Mubashir-Khan',
-             'email' => 'mubshirk875@gmail.com',
+             'name' => 'Sub Admin',
+             'email' => 'subadmin@test.com',
              'password' => Hash::make('password')
          ]);
     }
