@@ -44,4 +44,6 @@ Route::controller(AdminController::class)->group(function (){
 Route::controller(ExamController::class)->group(function (){
     Route::get('create-exam','show')->name('create-exam');
     Route::post('create-exam','store')->name('create-exam');
+
+    Route::get('show-exams','showExam')->name('exams');
 });

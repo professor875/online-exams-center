@@ -27,8 +27,8 @@
             <x-templates.nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                 {{ __('Home') }}
             </x-templates.nav-link>
-            @if(auth()->user()->roll === 'candidate')
-                <x-templates.nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+            @if(auth()->user()->roll === 'candidate' || auth()->user()->roll === 'sub-admin')
+                <x-templates.nav-link :href="route('exams')" :active="request()->routeIs('exams')">
                     {{ __('Exams') }}
                 </x-templates.nav-link>
                 <x-templates.nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
@@ -40,8 +40,6 @@
                 <x-templates.nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                     {{ __('Announcements') }}
                 </x-templates.nav-link>
-            @endif
-            @if(auth()->user()->roll === 'sub-admin')
                 <x-templates.nav-link :href="route('create-exam')" :active="request()->routeIs('create-exam')">
                     {{ __('Create-Exams') }}
                 </x-templates.nav-link>
