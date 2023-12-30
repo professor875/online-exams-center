@@ -39,6 +39,10 @@ Route::controller(AdminController::class)->group(function (){
     Route::get('admins','dashboard')->name('dashboard');
     Route::get('candidates','candidate')->name('candidate');
     Route::DELETE('delete-user/{user}','destroy')->name('delete-user');
+
+    Route::get('exams-dashboard','examsDashboard')->name('exams-dashboard');
+    Route::DELETE('delete-exam/{user}','destroyExam')->name('delete-exam');
+
 });
 
 Route::controller(ExamController::class)->group(function (){

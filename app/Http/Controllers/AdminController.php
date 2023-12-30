@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,12 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('subAdmins'));
     }
 
+    public function examsDashboard()
+    {
+        $exams = Exam::all();
+        return view('admin.exams', compact('exams'));
+    }
+
     public function candidate()
     {
         $candidates = User::where('roll','candidate')->get();
@@ -60,5 +67,21 @@ class AdminController extends Controller
         $user->delete();
 
         return back();
+    }
+
+    public function destroyExam($id)
+    {
+        $exam = Exam::findOrFail($id);
+
+        // $exam->questions()->answers()->delete();
+        $exam->questions->each(function ($question) {
+            $question->answers()->delete();
+        });
+
+        $exam->questions()->delete();
+
+        $exam->delete();
+
+        return redirect()->route('exams-dashboard');
     }
 }

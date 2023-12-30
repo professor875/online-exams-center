@@ -11,7 +11,13 @@ class ExamController extends Controller
 {
     public function viewExam(Exam $exam)
     {
-        return view('exam.view',compact('exam'));
+        if (Auth::check()){
+            if (auth()->user()->roll === 'candidate'){
+                return view('exam.view',compact('exam'));
+            }
+        }
+
+        return back();
 
     }
 

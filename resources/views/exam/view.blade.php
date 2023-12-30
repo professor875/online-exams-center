@@ -12,7 +12,7 @@
 
             @foreach( $exam->questions as $question )
                 <div class="mb-4">
-                    <h1 class="text-xl font-bold">Q {{ $loop->iteration }}: {{ $exam->title }}</h1>
+                    <h1 class="text-xl font-bold">Q {{ $loop->iteration }}: {{ $question->question }}</h1>
 
                     <div class=" xl:flex xl:space-x-4 2xl:space-x-16">
                         @foreach( $question->answers as $answer )

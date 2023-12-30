@@ -52,6 +52,12 @@
                     <x-templates.nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('Past-Papers') }}
                     </x-templates.nav-link>
+                    <x-templates.nav-link :href="route('exams-dashboard')" :active="request()->routeIs('exams-dashboard')">
+                        {{ __('Manage-Exams') }}
+                    </x-templates.nav-link>
+                    <x-templates.nav-link :href="route('create-exam')" :active="request()->routeIs('create-exam')">
+                        {{ __('Create-Exams') }}
+                    </x-templates.nav-link>
                 @endif
             </div>
 
