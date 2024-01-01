@@ -6,6 +6,7 @@ use App\Models\Answer;
 use App\Models\Exam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function Laravel\Prompts\select;
 
 class ExamController extends Controller
 {
@@ -25,19 +26,27 @@ class ExamController extends Controller
     {
         $correct_answers = Answer::all();
 
+        $correct_answers_key = $correct_answers->where('is_correct',true)->pluck('id');
+        $wrong_answers_key = $correct_answers->where('is_correct',false)->pluck('id');
+
         $correct = 0;
         $wrong = 0;
 
-        foreach($request->input('answer') as $selected_answer){
-            foreach ($selected_answer as $answer_id){
-                if($correct_answers[$answer_id-1]->is_correct){
-                    $correct = $correct + 1;
-                }
-                else{
-                    $wrong = $wrong +1;
+        foreach ($request->input('answer') as $selected_answer_id){
+                foreach ($correct_answers_key as $correct_answer_id){
+                    if ($correct_answer_id == $selected_answer_id){
+                        $correct = $correct + 1;
+                    }
+            }
+        }
+        foreach ($request->input('answer') as $selected_answer_id){
+            foreach ($wrong_answers_key as $wrong_answer_id){
+                if ($wrong_answer_id == $selected_answer_id){
+                    $wrong = $wrong + 1;
                 }
             }
         }
+
         return view('exam.result',compact('correct','wrong'));
     }
     public function showExam()
