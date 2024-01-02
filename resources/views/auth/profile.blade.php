@@ -7,14 +7,12 @@
         </div>
     </header>
     <main class=" p-10 flex justify-center items-center">
-       <div class="flex-col space-y-10">
+       <div class=" mx-auto space-y-10">
            @include('form.update-profile')
 
            @include('form.update-password')
 
            @include('form.delete-profile')
-
        </div>
-
     </main>
 </x-layout>
