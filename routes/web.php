@@ -35,6 +35,8 @@ Route::controller(ProfileController::class)->group(function (){
     Route::get('/profile','profile')->name('profile')->middleware('auth');
     Route::patch('/profile-update','update')->name('profile-update')->middleware('auth');
     Route::patch('/update-password','updatePassword')->name('update-password')->middleware('auth');
+
+    Route::delete('/delete-profile','destroy')->name('delete-profile')->middleware('auth');
 });
 
 Route::controller(AdminController::class)->group(function (){

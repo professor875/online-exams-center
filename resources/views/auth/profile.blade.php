@@ -11,6 +11,9 @@
            @include('form.update-profile')
 
            @include('form.update-password')
+
+           @include('form.delete-profile')
+
        </div>
 
     </main>
