@@ -31,6 +31,9 @@ Route::controller(ProfileController::class)->group(function (){
     Route::get('login','show')->name('login');
     Route::post('login','login')->name('login');
     Route::post('logout','logout')->name('logout');
+
+    Route::get('/profile','profile')->name('profile')->middleware('auth');
+    Route::patch('/profile-update','update')->name('profile-update')->middleware('auth');
 });
 
 Route::controller(AdminController::class)->group(function (){

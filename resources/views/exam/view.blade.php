@@ -11,17 +11,19 @@
             <h2 class="text-lg font-semibold mb-4">Questions</h2>
 
             @foreach( $exam->questions as $question )
-                <div class="mb-4">
+                <div class="mb-16">
                     <h1 class="text-xl font-bold">Q {{ $loop->iteration }}: {{ $question->question }}</h1>
 
                     <div class=" xl:flex xl:space-x-4 2xl:space-x-16">
                         @foreach( $question->answers as $answer )
-                            <div class=" flex items-center mb-2 max-w-[400px] min-w-[300px] justify-between">
-                                <h1 class="text-xl font-bold underline underline-offset-8">{{ $answer->answer }}</h1>
-                                <label class="ml-2 text-green-500">
-                                    <input type="radio" name="answer[{{ $question->id }}]" value="{{ $answer->id }}" required class="mr-1">
-                                    Correct
-                                </label>
+                            <div class="text-gray-300">
+                                <div class=" flex items-center mb-2 max-w-[400px] min-w-[300px] justify-between">
+                                    <h1 class="text-xl font-bold underline underline-offset-8">{{ $answer->answer }}</h1>
+                                    <label class="ml-2 text-green-500">
+                                        <input type="radio" name="answer[{{ $question->id }}]" value="{{ $answer->id }}" required class="mr-1">
+                                        Correct
+                                    </label>
+                                </div>
                             </div>
                         @endforeach
                     </div>

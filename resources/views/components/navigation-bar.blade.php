@@ -1,4 +1,3 @@
-<div class="border-b border-b-cyan-900 ">
     @guest()
         <nav class=" flex justify-around space-x-4 items-center mx-10 my-4">
             <div class="flex space-x-8">
@@ -49,9 +48,6 @@
                     <x-templates.nav-link :href="route('candidate')" :active="request()->routeIs('candidate')">
                         {{ __('Candidates') }}
                     </x-templates.nav-link>
-                    <x-templates.nav-link :href="route('login')" :active="request()->routeIs('login')">
-                        {{ __('Past-Papers') }}
-                    </x-templates.nav-link>
                     <x-templates.nav-link :href="route('exams-dashboard')" :active="request()->routeIs('exams-dashboard')">
                         {{ __('Manage-Exams') }}
                     </x-templates.nav-link>
@@ -63,7 +59,7 @@
 
             <div class="  md:flex justify-between space-x-4 items-center">
                 <x-templates.dropedown-nav :name=" auth()->user()->name ">
-                    <x-templates.dropedown-link name="Profile"/>
+                    <x-templates.dropedown-link route="profile" name="Profile"/>
                     @if( auth()->user()->roll === 'admin')
                         <x-templates.dropedown-link name="Dashboard" route="dashboard"/>
                         <x-templates.dropedown-link name="Create Admin" route="admin-form"/>
@@ -81,4 +77,3 @@
         </nav>
     @endauth
 
-</div>
