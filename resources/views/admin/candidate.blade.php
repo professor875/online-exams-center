@@ -30,10 +30,14 @@
                                     </div>
                                 </div>
 
-                                <div class="flex w-full justify-between lg:justify-around space-x-4">
+                                <div class="flex w-full justify-between lg:justify-around items-center space-x-4">
                                     <div class="text-gray-400 min-w-[200px]">
                                         <p class="text-xs text-red-500">email</p>
                                         {{ $candidate->email }}
+                                    </div>
+
+                                    <div class="text-gray-400 text-xs min-w-[200px]">
+                                        {{ $candidate->created_at->diffForHumans() }}
                                     </div>
 
                                     <div class="flex items-center justify-between space-x-4 min-w-[200px]">

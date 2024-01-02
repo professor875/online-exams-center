@@ -23,14 +23,14 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::controller(RegisterController::class)->name('register')->group(function (){
-    Route::get('register','show');
-    Route::post('register','store');
+    Route::get('register','show')->middleware('guest');
+    Route::post('register','store')->middleware('guest');
 });
 
 Route::controller(ProfileController::class)->group(function (){
-    Route::get('login','show')->name('login');
-    Route::post('login','login')->name('login');
-    Route::post('logout','logout')->name('logout');
+    Route::get('login','show')->name('login')->middleware('guest');
+    Route::post('login','login')->name('login')->middleware('guest');
+    Route::post('logout','logout')->name('logout')->middleware('auth');
 
     Route::get('/profile','profile')->name('profile')->middleware('auth');
     Route::patch('/profile-update','update')->name('profile-update')->middleware('auth');

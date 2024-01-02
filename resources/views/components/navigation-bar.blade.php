@@ -30,17 +30,6 @@
                 <x-templates.nav-link :href="route('exams')" :active="request()->routeIs('exams')">
                     {{ __('Exams') }}
                 </x-templates.nav-link>
-                @if(auth()->user()->roll === 'examiner' || auth()->user()->roll === 'sub-admin')
-                    <x-templates.nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
-                        {{ __('Examiners') }}
-                    </x-templates.nav-link>
-                    <x-templates.nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
-                        {{ __('Result') }}
-                    </x-templates.nav-link>
-                    <x-templates.nav-link :href="route('create-exam')" :active="request()->routeIs('create-exam')">
-                        {{ __('Create-Exams') }}
-                    </x-templates.nav-link>
-                @endif
                 @if(auth()->user()->roll === 'admin')
                     <x-templates.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -55,6 +44,15 @@
                         {{ __('Create-Exams') }}
                     </x-templates.nav-link>
                 @endif
+                @if(auth()->user()->roll === 'examiner' || auth()->user()->roll === 'sub-admin')
+                    <x-templates.nav-link :href="route('candidate')" :active="request()->routeIs('candidate')">
+                        {{ __('Candidates') }}
+                    </x-templates.nav-link>
+                    <x-templates.nav-link :href="route('create-exam')" :active="request()->routeIs('create-exam')">
+                        {{ __('Create-Exams') }}
+                    </x-templates.nav-link>
+                @endif
+
             </div>
 
             <div class="  md:flex justify-between space-x-4 items-center">
@@ -62,7 +60,7 @@
                     <x-templates.dropedown-link route="profile" name="Profile"/>
                     @if( auth()->user()->roll === 'admin')
                         <x-templates.dropedown-link name="Dashboard" route="dashboard"/>
-                        <x-templates.dropedown-link name="Create Admin" route="admin-form"/>
+                        <x-templates.dropedown-link name="Create Accounts" route="admin-form"/>
                     @endif
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

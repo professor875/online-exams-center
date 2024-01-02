@@ -7,8 +7,8 @@
        x-transition:leave="transition ease-in duration-6005"
        x-transition:leave-start="opacity-100 scale-100"
        x-transition:leave-end="opacity-0 scale-95"
-       class="hidden sm:flex transition-all text-xl font-bold text-red-500"
+       class="hidden sm:flex transition-all text-2xl font-bold text-red-500"
        style="display: none;"
        @click="open = false">
-        Examination Hall !</p>
+        QuickQuizCenter</p>
 </div>
