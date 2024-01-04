@@ -71,7 +71,5 @@
 
                 </x-templates.dropedown-nav>
             </div>
-
         </nav>
     @endauth
-

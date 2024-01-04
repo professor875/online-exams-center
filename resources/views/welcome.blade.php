@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <main class="py-10 px-[3%] flex-col space-y-16 duration-1000 transition-transform">
+    <main class="py-10 px-[3%] flex flex-col items-center space-y-16 duration-1000 transition-transform">
         <div class=" xl:flex space-y-0 justify-center xl:space-y-0 xl:space-x-0 text-white welcome-image transform transition-transform hover:scale-105 rounded-2xl">
             <div class="flex xl:max-w-2xl border-r-2 xl:border-r-0 border-red-500 p-8 xl:border-b-2"><img class=" rounded-2xl w-full shadow-2xl shadow-white" src="{{ asset('images/leptop.jpeg') }}"></div>
             <div class="flex-col space-y-8 border-r-2 border-b-2 border-red-500 rounded-br-2xl p-8">
@@ -30,7 +30,7 @@
                 <p class=" xl:text-lg text-sm">🔗 <a href="{{ route('register') }}" class="text-blue-500">Sign Up Now</a> and start your learning journey!</p>
             </div>
         </div>
-        <div class=" xl:flex space-y-0 justify-center xl:space-y-0 xl:space-x-0 text-white welcome-image transform transition-transform hover:scale-105 rounded-2xl">
+        <div class=" xl:flex max-w-[1500px] space-y-0 justify-center xl:space-y-0 xl:space-x-0 text-white welcome-image transform transition-transform hover:scale-105 rounded-2xl">
             <div class="flex-col space-y-4 border-l-2 xl:border-b-2 border-red-500 xl:rounded-bl-2xl p-8">
                 <h1 class="text-2xl mb-8 font-semibold">🍎 Calling All Educators! Elevate Your Teaching with QuickQuizCenter!</h1>
                 <p class="t xl:text-lg text-sm">✅ <span class="font-semibold">Intuitive Exam Creation:</span> Easily build customized exams tailored to your curriculum with our user-friendly interface.</p>
