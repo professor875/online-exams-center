@@ -30,6 +30,9 @@
                 <x-templates.nav-link :href="route('exams')" :active="request()->routeIs('exams')">
                     {{ __('Exams') }}
                 </x-templates.nav-link>
+                <x-templates.nav-link :href="route('quick-quiz')" :active="request()->routeIs('quick-quiz')">
+                    {{ __("Quick Quiz's") }}
+                </x-templates.nav-link>
                 @if(auth()->user()->roll === 'admin')
                     <x-templates.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
