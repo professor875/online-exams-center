@@ -13,8 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
          \App\Models\User::factory()->create([
              'roll' => 'admin',
              'name' => 'Admin',
@@ -33,5 +31,8 @@ class DatabaseSeeder extends Seeder
              'email' => 'subadmin@test.com',
              'password' => Hash::make('password')
          ]);
+
+        \App\Models\User::factory(10)->create();
+
     }
 }

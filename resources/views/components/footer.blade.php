@@ -1,6 +1,6 @@
 <div class="footer w-full bg-gray-800 mt-16 p-4">
     <div class="text-center">
-        <h1 class="text-2xl text-white font-semibold">🌐 QuickQuizCenter - Connect. Learn. Excel.</h1>
+        <h1 class="text-2xl text-white font-semibold flex justify-center items-center"><img class="mx-2" src="{{ asset('images/logo.png') }}"> <span class="text-red-500">QuickQuizCenter</span> - Connect. Learn. Excel.</h1>
         <p class="text-sm text-gray-300 my-4">QuickQuizCenter is your all-in-one platform for seamless online assessments. Whether you're a student eager to test your knowledge <br> or a teacher looking to create engaging exams, we've got you covered.</p>
         <p class="text-sm text-gray-300 my-4">Join QuickQuizCenter today and unlock a world of educational opportunities. Connect, Learn, Excel!</p>
     </div>
