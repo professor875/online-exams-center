@@ -5,13 +5,15 @@
         <p class="text-sm text-gray-300 my-4">Join QuickQuizCenter today and unlock a world of educational opportunities. Connect, Learn, Excel!</p>
     </div>
 
-    <div class=" grid grid-cols-1 space-y-8 md:space-y-0 md:space-x-8 md:grid-cols-2 my-10 text-center ">
+
+    <div class=" grid space-y-8 md:space-y-0 justify-items-center md:space-x-2 md:grid-cols-3 my-10 text-center ">
         <div class="flex-col">
             <h1 class="text-xl text-white font-semibold">For Students</h1>
             <p class="text-sm text-gray-300 my-4">🌐 Explore a diverse range of exams, from academic subjects to skill assessments.</p>
             <p class="text-sm text-gray-300 my-4">🚀 Experience a user-friendly platform for quick and stress-free exam-taking.</p>
             <p class="text-sm text-gray-300 my-4">📈 Track your progress and receive instant feedback to fuel your learning journey.</p>
         </div>
+        <div class="max-w-xs items-center justify-center flex"><img class=" w-full" src="{{ asset('images/exam.png') }}"></div>
         <div class="flex-col">
             <h1 class="text-xl text-white font-semibold">For Teachers</h1>
             <p class="text-sm text-gray-300 my-4">📚 Empower your teaching with intuitive exam creation and automated grading.</p>

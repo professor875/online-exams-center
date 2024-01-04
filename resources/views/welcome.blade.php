@@ -16,10 +16,10 @@
         </div>
     </div>
 
-    <main class="py-10 px-16 flex-col space-y-16 duration-1000 transition-transform">
-        <div class=" xl:flex space-y-8 xl:space-y-0 xl:space-x-8 text-white welcome-image border-r-2 border-b-2 transform transition-transform hover:scale-105 border-red-500 p-4 rounded-2xl">
-            <div class="flex xl:max-w-2xl"><img class=" rounded-2xl w-full shadow-2xl shadow-white" src="{{ asset('images/leptop.jpeg') }}"></div>
-            <div class="flex-col space-y-8">
+    <main class="py-10 px-[3%] flex-col space-y-16 duration-1000 transition-transform">
+        <div class=" xl:flex space-y-0 justify-center xl:space-y-0 xl:space-x-0 text-white welcome-image transform transition-transform hover:scale-105 rounded-2xl">
+            <div class="flex xl:max-w-2xl border-r-2 xl:border-r-0 border-red-500 p-8 xl:border-b-2"><img class=" rounded-2xl w-full shadow-2xl shadow-white" src="{{ asset('images/leptop.jpeg') }}"></div>
+            <div class="flex-col space-y-8 border-r-2 border-b-2 border-red-500 rounded-br-2xl p-8">
                 <h1 class=" xl:text-2xl text-xl mb-8 font-semibold">🚀 Welcome to QuickQuizCenter - Your Gateway to Knowledge!</h1>
                 <p class=" xl:text-lg text-sm">✅ Explore a Variety of Exams: Dive into a diverse range of exams catering to different subjects and skill levels.</p>
                 <p class=" xl:text-lg text-sm">✅ Seamless User Experience: Our user-friendly interface ensures a smooth and hassle-free exam-taking experience.</p>
@@ -30,9 +30,8 @@
                 <p class=" xl:text-lg text-sm">🔗 <a href="{{ route('register') }}" class="text-blue-500">Sign Up Now</a> and start your learning journey!</p>
             </div>
         </div>
-
-        <div class=" xl:flex space-y-8 xl:space-y-0 xl:space-x-32 text-white  welcome-image border-l-2 border-b-2 transform transition-transform hover:scale-105 border-red-500 p-4 rounded-2xl">
-            <div class="flex-col space-y-4">
+        <div class=" xl:flex space-y-0 justify-center xl:space-y-0 xl:space-x-0 text-white welcome-image transform transition-transform hover:scale-105 rounded-2xl">
+            <div class="flex-col space-y-4 border-l-2 xl:border-b-2 border-red-500 xl:rounded-bl-2xl p-8">
                 <h1 class="text-2xl mb-8 font-semibold">🍎 Calling All Educators! Elevate Your Teaching with QuickQuizCenter!</h1>
                 <p class="t xl:text-lg text-sm">✅ <span class="font-semibold">Intuitive Exam Creation:</span> Easily build customized exams tailored to your curriculum with our user-friendly interface.</p>
                 <p class="t xl:text-lg text-sm">✅ <span class="font-semibold">Diverse Question Formats: </span>From multiple-choice to open-ended questions, our platform supports various question formats to suit your teaching style.</p>
@@ -42,7 +41,8 @@
                 <p class="t xl:text-lg text-sm">Join QuickQuizCenter and revolutionize your approach to assessments! Empower your students to succeed and make learning a truly engaging experience.</p>
                 <p class="t xl:text-lg text-sm">🔗 <a href="{{ route('register') }}" class="text-blue-500">Sign Up Now</a> and take the lead in shaping the future of education!</p>
             </div>
-            <div class="flex w-[100%]"><img class=" rounded-2xl max-w-3xl shadow-2xl shadow-white" src="{{ asset('images/screen.jpg') }}"></div>
+            <div class="flex xl:max-w-2xl border-b-2 xl:border-l-0 border-l-2 border-red-500 p-8 rounded-bl-2xl xl:rounded-none "><img class=" rounded-2xl w-full max-w-3xl shadow-2xl shadow-white" src="{{ asset('images/screen.jpg') }}"></div>
         </div>
     </main>
+    <x-footer/>
 </x-layout>
