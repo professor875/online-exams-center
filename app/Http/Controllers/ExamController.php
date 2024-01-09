@@ -24,10 +24,8 @@ class ExamController extends Controller
 
     public function submitExam(Request $request)
     {
-        $correct_answers = Answer::all();
-
-        $correct_answers_key = $correct_answers->where('is_correct',true)->pluck('id');
-        $wrong_answers_key = $correct_answers->where('is_correct',false)->pluck('id');
+        $correct_answers_key = Answer::where('is_correct',true)->pluck('id');
+        $wrong_answers_key = Answer::where('is_correct',false)->pluck('id');
 
         $correct = 0;
         $wrong = 0;
@@ -35,18 +33,15 @@ class ExamController extends Controller
         foreach ($request->input('answer') as $selected_answer_id){
                 foreach ($correct_answers_key as $correct_answer_id){
                     if ($correct_answer_id == $selected_answer_id){
-                        $correct = $correct + 1;
+                        $correct++;
                     }
             }
-        }
-        foreach ($request->input('answer') as $selected_answer_id){
             foreach ($wrong_answers_key as $wrong_answer_id){
                 if ($wrong_answer_id == $selected_answer_id){
-                    $wrong = $wrong + 1;
+                    $wrong++;
                 }
             }
         }
-
         return view('exam.result',compact('correct','wrong'));
     }
     public function showExam()
@@ -61,9 +56,7 @@ class ExamController extends Controller
                 return view('exam.create');
             }
         }
-
             return back();
-
     }
 
     public function store(Request $request)

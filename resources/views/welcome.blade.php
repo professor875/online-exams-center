@@ -27,7 +27,7 @@
                 <p class=" xl:text-lg text-sm">✅ Join a Community of Learners: Connect with fellow candidates, share insights, and enhance your knowledge together.</p>
                 <p class=" xl:text-lg text-sm">✅ Quick and Easy Registration: Sign up in seconds and unlock a world of educational opportunities.</p>
                 <p class=" xl:text-lg text-sm">Join QuickQuizCenter now and take the first step towards a smarter, more informed you!</p>
-                <p class=" xl:text-lg text-sm">🔗 <a href="{{ route('register') }}" class="text-blue-500">Sign Up Now</a> and start your learning journey!</p>
+                <p class=" xl:text-lg text-sm">🔗 <a href="/register" class="text-blue-500">Sign Up Now</a> and start your learning journey!</p>
             </div>
         </div>
         <div class=" xl:flex max-w-[1500px] space-y-0 justify-center xl:space-y-0 xl:space-x-0 text-white welcome-image transform transition-transform hover:scale-105 rounded-2xl">
@@ -39,7 +39,7 @@
                 <p class="t xl:text-lg text-sm">✅ <span class="font-semibold">Progress Monitoring:</span> Track the performance of your students with detailed analytics, enabling targeted and effective teaching.</p>
                 <p class="t xl:text-lg text-sm">✅ <span class="font-semibold">Collaborate and Share:</span> Collaborate with fellow educators, share resources, and contribute to a vibrant educational community.</p>
                 <p class="t xl:text-lg text-sm">Join QuickQuizCenter and revolutionize your approach to assessments! Empower your students to succeed and make learning a truly engaging experience.</p>
-                <p class="t xl:text-lg text-sm">🔗 <a href="{{ route('register') }}" class="text-blue-500">Sign Up Now</a> and take the lead in shaping the future of education!</p>
+                <p class="t xl:text-lg text-sm">🔗 <a href="/register" class="text-blue-500">Sign Up Now</a> and take the lead in shaping the future of education!</p>
             </div>
             <div class="flex xl:max-w-2xl border-b-2 xl:border-l-0 border-l-2 border-red-500 p-8 rounded-bl-2xl xl:rounded-none "><img class=" rounded-2xl w-full max-w-3xl shadow-2xl shadow-white" src="{{ asset('images/screen.jpg') }}"></div>
         </div>
