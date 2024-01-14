@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegisterController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -61,4 +60,4 @@ Route::controller(ExamController::class)->group(function (){
     Route::post('submit-exam', 'submitExam')->name('submit-exam');
 });
 
-Route::get('quick-quiz',[QuizController::class,'show'])->name('quick-quiz')->middleware('auth');
+Route::view('quick-quiz','auth.quick-quiz')->name('quick-quiz')->middleware('auth');
