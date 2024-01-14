@@ -7,6 +7,7 @@
                 <h1 class="text-xl font-bold">Title : {{ $exam->title }}</h1>
                 <h1 class="text-xl font-bold">Duration : {{ $exam->duration }} minutes</h1>
             </div>
+            <input type="number" name="examId" value="{{ $exam->id }}" class="hidden">
 
             <h2 class="text-lg font-semibold mb-4">Questions</h2>
 

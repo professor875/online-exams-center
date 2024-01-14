@@ -24,22 +24,16 @@ class ExamController extends Controller
 
     public function submitExam(Request $request)
     {
-        $correct_answers_key = Answer::where('is_correct',true)->pluck('id');
-        $wrong_answers_key = Answer::where('is_correct',false)->pluck('id');
+        $correct_answers_id = Answer::where('exam_id',$request->input('examId'))->where('is_correct', true)->pluck('id');
 
         $correct = 0;
-        $wrong = 0;
+        $wrong = 5;
 
         foreach ($request->input('answer') as $selected_answer_id){
-                foreach ($correct_answers_key as $correct_answer_id){
+                foreach ($correct_answers_id as $correct_answer_id){
                     if ($correct_answer_id == $selected_answer_id){
                         $correct++;
                     }
-            }
-            foreach ($wrong_answers_key as $wrong_answer_id){
-                if ($wrong_answer_id == $selected_answer_id){
-                    $wrong++;
-                }
             }
         }
         return view('exam.result',compact('correct','wrong'));
@@ -71,6 +65,7 @@ class ExamController extends Controller
                 $correctAnswer = $questionData['answer'][$correct];
                 $isCorrect = isset($correct) && $correctAnswer == $currentAnswer;
                 $question->answers()->create([
+                    'exam_id' => $exam->id,
                     'answer' => $currentAnswer,
                     'is_correct' => $isCorrect,
                 ]);
