@@ -20,6 +20,7 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
+//        dd($request->all());
         $attributes = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
@@ -28,7 +29,9 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return redirect()->back();
+        return response()->json(['message' => 'Form submitted successfully']);
+
+//        return redirect()->back();
 
     }
 

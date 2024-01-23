@@ -58,7 +58,7 @@
 
             </div>
 
-            <div class="  md:flex justify-between space-x-4 items-center">
+            <div id="profile-name" class="  md:flex justify-between space-x-4 items-center">
                 <x-templates.dropedown-nav :name=" auth()->user()->name ">
                     <x-templates.dropedown-link route="profile" name="Profile"/>
                     @if( auth()->user()->roll === 'admin')

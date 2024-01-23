@@ -8,7 +8,7 @@
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
-    <form method="post" action="{{ route('profile-update') }}" class="mt-6 space-y-6 max-w-xl">
+    <form id="profile-update" class="mt-6 space-y-6 max-w-xl">
         @csrf
         @method('patch')
         <div>
@@ -20,7 +20,49 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-form.primary-btn name="Save"/>
+            <x-form.primary-btn id="save" name="Save"/>
+            <p id="saved" class="hidden text-gray-400 text-md mx-4">Saved..</p>
         </div>
     </form>
+
+    <script>
+        $(document).ready(function (event) {
+            $('#profile-update').submit(function (event) {
+                event.preventDefault();
+
+                let submitButton = $('#save');
+
+                submitButton.prop('disabled', true);
+                submitButton.addClass('disabled');
+
+                let formData = new FormData(this);
+
+                $.ajax({
+                    url:'{{ route('profile-update') }}',
+                    method:'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success:function (response) {
+                        // reloading the profile part of the navbar after form submitting successfully
+                        $('#profile-name').load(location.href + ' #profile-name');
+                        $('#saved').fadeIn('slow');
+                        setTimeout(function () {
+                            $('#saved').fadeOut('slow');
+                        }, 2000);
+                    },
+                    error:function (error) {
+                        console.log('Error :',error);
+                    },
+                    complete: function () {
+                        // Enable the submit button after 4 seconds
+                        setTimeout(function () {
+                            submitButton.prop('disabled', false);
+                            submitButton.removeClass('disabled');
+                        }, 3000);
+                    }
+                });
+            });
+        })
+    </script>
 </section>

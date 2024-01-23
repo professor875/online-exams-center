@@ -8,7 +8,7 @@
 
     <input type="{{ $type }}"
            name="{{ $name }}"
-           id="{{ $name }}"
+{{--           id="{{ $name }}"--}}
            required
            value="{{ old($name) }}"
            placeholder="Write your {{ $label }}.."
