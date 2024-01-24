@@ -95,6 +95,8 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('welcome');
+        return response()->json(['message' => 'Form submitted successfully']);
+
+//        return redirect()->route('welcome');
     }
 }
