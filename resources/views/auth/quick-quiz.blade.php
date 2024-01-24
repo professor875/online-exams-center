@@ -11,10 +11,8 @@
     <div class="grid grid-cols-4 gap-8 py-10 mx-44 min-h-screen text-red-500">
             <a href="#" target="_blank" class=" p-8 max-h-[200px] transition-all cursor-pointer border hover:outline hover:outline-red-500 border-red-500 rounded-xl ">
                 <div class="logo">
+
                 </div>
-                <h1 class="text-lg mt-8 font-bolded">
-                    Duration: <br> 3 Minutes
-                </h1>
             </a>
     </div>
 </x-layout>
