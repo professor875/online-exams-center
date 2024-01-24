@@ -20,15 +20,15 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-//        dd($request->all());
         $attributes = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'min:3'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
         ]);
         $request->user()->fill($attributes);
 
         $request->user()->save();
 
+//        return redirect()->back()->withErrors($request->errors());
         return response()->json(['message' => 'Form submitted successfully']);
 
 //        return redirect()->back();

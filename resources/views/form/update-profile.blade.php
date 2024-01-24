@@ -13,11 +13,11 @@
         @method('patch')
         <div>
             <x-form.update-input label="Name" name="name" :value="old('name', $user->name)" />
-            </div>
+        </div>
 
         <div>
             <x-form.update-input label="Email" name="email" :value="old('name', $user->email)" />
-            <p id="email-error" class="text-sm text-red-500"></p>
+            <p id="email-error" class="text-red-500 text-xs"></p>
         </div>
 
         <div class="flex items-center gap-4">
@@ -53,11 +53,12 @@
                         }, 2000);
                     },
                     error:function (error) {
-                        $('#email-error').innerHTML('meow');
+                        $('#email-error').fadeIn().text(error['responseJSON']['message']);
                     },
                     complete: function () {
                         // Enable the submit button after 4 seconds
                         setTimeout(function () {
+                            $('#email-error').fadeOut();
                             submitButton.prop('disabled', false);
                             submitButton.removeClass('disabled');
                         }, 3000);

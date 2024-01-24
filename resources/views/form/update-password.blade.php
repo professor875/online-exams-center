@@ -15,6 +15,7 @@
         <x-form.form-input label="Current Password" name="current_password" type="password" />
         <x-form.form-input label="New Password" name="password" type="password" />
         <x-form.form-input label="Confirm Password" name="password_confirmation" type="password" />
+        <p id="password-error" class="text-red-500 text-xs"></p>
 
         <div class="flex items-center gap-4">
             <x-form.primary-btn id="password-save" name="Save"/>
@@ -47,11 +48,12 @@
                         }, 2000);
                     },
                     error:function (error) {
-                        console.log('Error :',error);
+                        $('#password-error').fadeIn().text(error['responseJSON']['message']);
                     },
                     complete: function () {
                         // Enable the submit button after 4 seconds
                         setTimeout(function () {
+                            $('#password-error').fadeOut();
                             submitButton.prop('disabled', false);
                             submitButton.removeClass('disabled');
                         }, 3000);
