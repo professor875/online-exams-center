@@ -8,7 +8,7 @@
             {{ __("Update your account's password.") }}
         </p>
     </header>
-    <form method="post" action="{{ route('update-password') }}" class="mt-6 space-y-6 max-w-xl">
+    <form id="password-update" class="mt-6 space-y-6 max-w-xl">
         @csrf
         @method('patch')
 
@@ -17,7 +17,47 @@
         <x-form.form-input label="Confirm Password" name="password_confirmation" type="password" />
 
         <div class="flex items-center gap-4">
-            <x-form.primary-btn name="Save"/>
+            <x-form.primary-btn id="password-save" name="Save"/>
+            <p id="password-saved" class="hidden text-gray-400 text-md mx-4">Saved..</p>
         </div>
     </form>
+
+    <script>
+        $(document).ready(function (event) {
+            $('#password-update').submit(function (event) {
+                event.preventDefault();
+
+                let submitButton = $('#password-save');
+
+                submitButton.prop('disabled', true);
+                submitButton.addClass('disabled');
+
+                let formData = new FormData(this);
+
+                $.ajax({
+                    url:'{{ route('update-password') }}',
+                    method:'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success:function (response) {
+                        $('#password-saved').fadeIn('slow');
+                        setTimeout(function () {
+                            $('#password-saved').fadeOut('slow');
+                        }, 2000);
+                    },
+                    error:function (error) {
+                        console.log('Error :',error);
+                    },
+                    complete: function () {
+                        // Enable the submit button after 4 seconds
+                        setTimeout(function () {
+                            submitButton.prop('disabled', false);
+                            submitButton.removeClass('disabled');
+                        }, 3000);
+                    }
+                });
+            });
+        })
+    </script>
 </section>

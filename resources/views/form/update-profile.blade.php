@@ -17,11 +17,12 @@
 
         <div>
             <x-form.update-input label="Email" name="email" :value="old('name', $user->email)" />
+            <p id="email-error" class="text-sm text-red-500"></p>
         </div>
 
         <div class="flex items-center gap-4">
-            <x-form.primary-btn id="save" name="Save"/>
-            <p id="saved" class="hidden text-gray-400 text-md mx-4">Saved..</p>
+            <x-form.primary-btn id="profile-save" name="Save"/>
+            <p id="profile-saved" class="hidden text-gray-400 text-md mx-4">Saved..</p>
         </div>
     </form>
 
@@ -30,7 +31,7 @@
             $('#profile-update').submit(function (event) {
                 event.preventDefault();
 
-                let submitButton = $('#save');
+                let submitButton = $('#profile-save');
 
                 submitButton.prop('disabled', true);
                 submitButton.addClass('disabled');
@@ -46,13 +47,13 @@
                     success:function (response) {
                         // reloading the profile part of the navbar after form submitting successfully
                         $('#profile-name').load(location.href + ' #profile-name');
-                        $('#saved').fadeIn('slow');
+                        $('#profile-saved').fadeIn('slow');
                         setTimeout(function () {
-                            $('#saved').fadeOut('slow');
+                            $('#profile-saved').fadeOut('slow');
                         }, 2000);
                     },
                     error:function (error) {
-                        console.log('Error :',error);
+                        $('#email-error').innerHTML('meow');
                     },
                     complete: function () {
                         // Enable the submit button after 4 seconds
